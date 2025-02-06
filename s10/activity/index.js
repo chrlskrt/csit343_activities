@@ -47,48 +47,30 @@ function addNum(a, b) {
   return a + b;
 }
 
-console.log("addNum(15, 5)");
-console.log(addNum(15, 5));
-
 // 2. Create a function called subNum which will be able to subtract two numbers.
 function subNum(a, b) {
   return a - b;
 }
-
-console.log("subNum(25, 10)");
-console.log(subNum(25, 10));
 
 // 3. Create a function called multiplyNum which will be able to multiply two numbers.
 function multiplyNum(a, b) {
   return a * b;
 }
 
-console.log("multiplyNum(30, 4)");
-console.log(multiplyNum(30, 4));
-
 // 4. Create a function divideNum which will be able to divide two numbers.
 function divideNum(a, b) {
   return a / b;
 }
-
-console.log("divideNum(120, 2)");
-console.log(divideNum(120, 2));
 
 // 5. Create a function called getCircleArea which will be able to get total area of a circle from a provided radius.
 function getCircleArea(radius) {
   return 3.1416 * radius ** 2;
 }
 
-console.log("getCircleArea(16)");
-console.log(getCircleArea(16));
-
 // 6. Create a function called getAverage which will be able to get total average of four numbers.
 function getAverage(a, b, c, d) {
   return (a + b + c + d) / 4;
 }
-
-console.log("getAverage(81, 79, 89, 85)");
-console.log(getAverage(81, 79, 89, 85));
 
 // 7. Create a function called checkIfPassed which will be able to check if you passed by checking the percentage of your score against the passing percentage.
 function checkIfPassed(score, totalScore) {
@@ -96,9 +78,6 @@ function checkIfPassed(score, totalScore) {
   let isPassed = percentage > 75;
   return isPassed;
 }
-
-console.log("checkIfPassed(8, 10)");
-console.log(checkIfPassed(8, 10));
 
 function register(firstName, lastName, email, password, mobileNum) {
   return {
