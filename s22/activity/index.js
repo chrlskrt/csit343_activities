@@ -33,7 +33,28 @@ INSTRUCTIONS:
 
 let adventurer = {
   // Properties
+  name: "Arin the Brave",
+  health: 100,
+  level: 10,
+  attack: 20,
+  inventory: [],
   // Method to attack a monster
+  attackMonster: function (monster) {
+    monster.health -= this.attack;
+    if (monster.health <= 0) {
+      return `${this.name} attacks ${monster.name}! ${
+        monster.name
+      } has been defeated! ${monster.dropLoot(this)}`;
+    } else {
+      return `${this.name} attacks ${monster.name}! Monster's health is now ${monster.health}`;
+    }
+  },
+
+  // Method to pick up item
+  pickUpItem: function (item) {
+    this.inventory.push(item);
+    return `Picked up ${item}`;
+  },
 };
 
 /**********************************************
@@ -58,10 +79,27 @@ INSTRUCTIONS:
     - Create a new instance for the monster (ex. Fenrir the Wolf, level 30, health 100, loot 'Wolf Fur')
 */
 
-function Monster() {
+function Monster(name, level, health, loot) {
+  this.name = name;
+  this.level = level;
+  this.health = health;
+  this.attack = level * 2;
+  this.loot = loot;
   // Method for the monster to attack the target
+  this.attackTarget = function (target) {
+    target.health -= this.attack;
+    if (target.health <= 0) {
+      return `${this.name} attacks ${target.name}! ${target.name}'s health is now ${target.health}`;
+    } else {
+      return `${this.name} attacks ${target.name}! ${target.name} has been defeated!`;
+    }
+  };
   // Method for the monster to drop loot when defeated
-  // Add item to adventurer's inventory
+  this.dropLoot = function (adventurer) {
+    adventurer.inventory.push(this.loot);
+    return `${this.name} drops ${this.loot}. Adventurer's inventory: ${adventurer.inventory}`;
+  };
 }
 
 // Create a new instance for the monster (e.g., Fenrir the Wolf, level 30, health 100, loot 'Wolf Fur')
+let fenrir = new Monster("Fenrir the Wolf", 30, 100, "Wolf Fur");
