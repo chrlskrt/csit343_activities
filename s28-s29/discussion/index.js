@@ -34,6 +34,7 @@ const showPosts = (posts) => {
         <div id="post-${post.id}" class="post">
             <h3 id="post-title-${post.id}">${post.title}</h3>
             <p id="post-body-${post.id}">${post.body}</p>
+            <button onclick="editPost('${post.id}')">Edit</button>
             <button onclick="deletePost('${post.id}')">Delete</button>
         </div>
         `;
@@ -107,7 +108,7 @@ viewAPostButton.addEventListener("click", function (e) {
   e.preventDefault();
   let postId = txtPostID.value;
 
-  fetch(`http://jsonplaceholder.typicode.com/posts/${postId}`)
+  fetch(`https://jsonplaceholder.typicode.com/posts/${postId}`)
     .then(function (response) {
       if (!response.ok) {
         return null;
@@ -128,4 +129,95 @@ viewAPostButton.addEventListener("click", function (e) {
       txtPostID.value = "";
       viewAPostButton.disabled = true;
     });
+});
+
+/*
+    Mini Activity (10 mins):
+    1. Create a function called editPost(id) that will:
+        a. Get the post title from <post-title-id>
+        b. Get the post body from <post-body-id>
+        c. Populate the form fields with the retrieved data:
+            i. post ID
+            ii. post title
+            iii. post body
+        d. Enable the "Update" button by removing the disable attribute
+        e. Take a screenshot of your webpage after the form is pre-filled and send it in the chat.
+*/
+
+const editIDField = document.querySelector(`#txt-edit-id`);
+const editTitleField = document.querySelector(`#txt-edit-title`);
+const editBodyField = document.querySelector(`#txt-edit-body`);
+function editPost(id) {
+  // Retrieve Data
+  let title = document.querySelector(`#post-title-${id}`);
+  let body = document.querySelector(`#post-body-${id}`);
+
+  editIDField.value = id;
+  editTitleField.value = title.innerHTML;
+  editBodyField.value = body.innerHTML;
+  //Enable Update Button
+  updatebtn = document.querySelector("#btn-submit-update");
+  updatebtn.disabled = false;
+}
+
+//-------- Activity S29 --------
+document
+  .querySelector("#form-edit-post")
+  .addEventListener("submit", function (e) {
+    e.preventDefault();
+    let postId = editIDField.value;
+
+    fetch(`https://jsonplaceholder.typicode.com/posts/${postId}`, {
+      method: "PUT",
+      body: JSON.stringify({
+        id: postId,
+        title: editTitleField.value,
+        body: editBodyField.value,
+        userId: 1,
+      }),
+
+      headers: { "Content-Type": "application/json" },
+    })
+      .then(function (response) {
+        if (!response.ok) {
+          alert("Update unsuccessful.");
+          return null;
+        }
+
+        return response.json();
+      })
+      .then(function (data) {
+        if (data != null) {
+          alert("Successfully updated!");
+          console.log("Successfully updated");
+          document.querySelector(`#post-title-${postId}`).innerHTML =
+            data.title;
+          document.querySelector(`#post-body-${postId}`).innerHTML = data.body;
+
+          editIDField.value = "";
+          editTitleField.value = "";
+          editBodyField.value = "";
+          document.querySelector("#btn-submit-update").disabled = true;
+        }
+      });
+  });
+
+function deletePost(id) {
+  fetch(`https://jsonplaceholder.typicode.com/posts/${id}`, {
+    method: "DELETE",
+  }).then(function (response) {
+    if (!response.ok) {
+      alert("Delete unsuccessful.");
+      return null;
+    }
+
+    console.log(response);
+    alert("Successfully deleted a post.");
+    document.querySelector(`#post-${id}`).remove();
+  });
+}
+
+document.querySelector("#delete-all").addEventListener("click", function (e) {
+  alert("All Posts Deleted");
+  document.querySelector("#div-post-entries").innerHTML = "";
 });
