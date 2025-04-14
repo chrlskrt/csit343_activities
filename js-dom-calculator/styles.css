@@ -1,0 +1,83 @@
+* {
+  box-sizing: border-box;
+}
+
+:root {
+  font-size: 15px;
+}
+
+html {
+  height: 100vh;
+}
+
+html,
+body {
+  margin: 0;
+  min-width: 344px;
+}
+
+body {
+  display: flex;
+  justify-content: center;
+  flex: none;
+}
+
+.container {
+  margin: 30px;
+  width: 500px;
+  border: solid 1px rgb(215, 215, 215);
+  border-radius: 25px;
+  padding: 15px;
+}
+
+h1 {
+  text-align: center;
+}
+
+#calculatorDiv {
+  display: grid;
+  gap: 10px;
+  grid-template-rows: 1fr 0.5fr;
+  grid-template-columns: repeat(3, 1fr);
+  grid-template-areas:
+    "input input op"
+    "memory memory memory";
+  justify-content: center;
+}
+
+.number-input,
+.btn-operator,
+.btn-mem-op,
+#btn-clear {
+  border-radius: 5px;
+  padding: 10px;
+}
+
+#calculatorDiv > div {
+  width: 100%;
+}
+
+#inputDiv {
+  grid-area: input;
+  justify-self: center;
+}
+
+#operatorDiv {
+  grid-area: op;
+  justify-self: right;
+}
+
+#inputDiv,
+#operatorDiv {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+#memoryDiv {
+  grid-area: memory;
+  display: flex;
+  justify-content: center;
+  gap: 10px;
+  height: 50%;
+}
