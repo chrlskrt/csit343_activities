@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Registration</title>
+
+    <!-- Styles -->
+    <link rel="stylesheet" href="./css/base.css" />
+    <link rel="stylesheet" href="./css/auth_styles.css" />
+  </head>
+  <body>
+    <header>
+      <div class="web-logo">
+        <a href="./index.html"><span>Zuitt Movie Library</span></a>
+      </div>
+      <nav>
+        <ul>
+          <li><a href="">Movies</a></li>
+          <li><a href="./login.html">Login</a></li>
+          <li><a href="">Register</a></li>
+        </ul>
+      </nav>
+    </header>
+    <main>
+      <h1>Registration Page</h1>
+      <form id="registration-form">
+        <div class="form-div container">
+          <label for="txt-email">Email</label>
+          <input type="text" id="txt-email" />
+          <p id="txt-email-err" class="err-passage"></p>
+          <label for="txt-password">Password</label>
+          <input type="password" id="txt-password" />
+          <p id="txt-password-err" class="err-passage"></p>
+          <label for="txt-confirm-password">Confirm Password</label>
+          <input type="password" id="txt-confirm-password" />
+          <p id="txt-conf-password-err" class="err-passage"></p>
+          <div class="button-div">
+            <button type="submit" id="btn-reg-submit" class="btn-submit">
+              Submit
+            </button>
+            <button type="button" id="btn-reg-reset">Reset</button>
+          </div>
+        </div>
+      </form>
+    </main>
+    <script type="text/javascript" src="./js/registration.js"></script>
+  </body>
+</html>
