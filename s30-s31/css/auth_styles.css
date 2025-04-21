@@ -1,12 +1,14 @@
 form {
   margin-top: 30px;
+  width: 60%;
 }
 
 .form-div {
   border: solid 1px rgb(88, 81, 81);
   padding: 20px;
+  min-width: 240px;
+  flex: 1;
   border-radius: 10px;
-  width: 500px;
   gap: 10px;
 }
 

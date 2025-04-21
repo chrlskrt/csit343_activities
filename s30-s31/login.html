@@ -3,13 +3,12 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Registration</title>
+    <title>Login</title>
 
     <!-- Styles -->
     <link rel="stylesheet" href="./css/base.css" />
     <link rel="stylesheet" href="./css/auth_styles.css" />
     <link rel="stylesheet" href="./css/responsive.css" />
-
   </head>
   <body>
     <header>
@@ -19,14 +18,14 @@
       <nav>
         <ul>
           <li><a href="./movies.html">Movies</a></li>
-          <li><a href="./login.html">Login</a></li>
-          <li><a href="#">Register</a></li>
+          <li><a href="#">Login</a></li>
+          <li><a href="./registration.html">Register</a></li>
         </ul>
       </nav>
     </header>
     <main>
-      <h1>Registration Page</h1>
-      <form id="registration-form">
+      <h1>Login Page</h1>
+      <form id="login-form">
         <div class="form-div container">
           <label for="txt-email">Email</label>
           <input type="text" id="txt-email" />
@@ -34,23 +33,20 @@
           <label for="txt-password">Password</label>
           <input type="password" id="txt-password" />
           <p id="txt-password-err" class="err-passage"></p>
-          <label for="txt-confirm-password">Confirm Password</label>
-          <input type="password" id="txt-confirm-password" />
-          <p id="txt-conf-password-err" class="err-passage"></p>
           <div class="button-div">
             <button
               type="submit"
-              id="btn-reg-submit"
+              id="btn-log-submit"
               class="btn-submit"
               disabled
             >
               Submit
             </button>
-            <button type="button" id="btn-reg-reset">Reset</button>
+            <button type="button" id="btn-log-reset">Reset</button>
           </div>
         </div>
       </form>
     </main>
-    <script type="text/javascript" src="./js/registration.js"></script>
+    <script type="text/javascript" src="./js/login.js"></script>
   </body>
 </html>
