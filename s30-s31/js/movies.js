@@ -30,8 +30,11 @@ function showMovies(movies) {
     movieCard.classList.add("movie-card");
     movieCard.id = movie.id;
     movieCard.innerHTML = `
-      <p class="movie-title">${movie.title}</p>
-      <p class="movie-genre">${movie.genre}</p>
+      <img src="./images/movie-icon.png" alt="Movie Poster">
+      <div class="movie-details">
+        <p class="movie-title">${movie.title}</p>
+        <p class="movie-genre">${movie.genre}</p>
+      </div> 
     `;
 
     moviesDiv.appendChild(movieCard);

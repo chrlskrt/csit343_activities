@@ -44,3 +44,21 @@ form {
 .button-div .btn-submit:disabled {
   background-color: gray;
 }
+
+.btn-reset {
+  cursor: pointer;
+}
+
+.button-div .btn-submit:hover {
+  transform: scale(1.1);
+  color: white;
+  background-color: blue;
+}
+
+.form-div .input-err {
+  border: solid 3px red;
+}
+
+.form-div .input-err:focus {
+  outline: none;
+}
